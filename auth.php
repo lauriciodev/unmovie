@@ -3,7 +3,7 @@ require_once "templates/header.php";
 ?>
 
 <div class="container-fluid" id="main-container">
-  <h2>Corpo do site</h2>
+  <h2>Aulthentication</h2>
 </div>
 
 <?php
