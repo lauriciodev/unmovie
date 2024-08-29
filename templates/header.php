@@ -1,8 +1,20 @@
 <?php
 require_once "globals.php";
 require_once "database.php";
+require_once "models/Message.php";
 
-$flashMessage = [];
+$message = new Message($BASE_URL);
+
+$flashMessage = $message->getMessage();
+
+if($flashMessage["msg"] != ""){
+  //limpar mensagem;
+
+  $message->clearMessage();
+
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -61,6 +73,9 @@ $flashMessage = [];
   </header>
   <?php if(!empty($flashMessage["msg"])): ?>
   <div class="msg-container">
+    <a class="redirect-button" href=" <?= $_SERVER["HTTP_REFERER"]?>">
+      <i class="fas fa-times"></i>
+    </a>
     <p class="msg <?= $flashMessage["type"] ?>"><?= $flashMessage["msg"]?></p>
   </div>
   <?php endif  ?>

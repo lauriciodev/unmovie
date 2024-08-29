@@ -8,6 +8,7 @@ class User {
   public $user_password;
   public $user_photo;
   public $user_bio;
+  public $user_token;
 }
 
 
